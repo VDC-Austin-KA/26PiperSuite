@@ -21,6 +21,8 @@ DefaultDirName={autoappdata}\Autodesk\Revit\Addins\2026
 DisableDirPage=yes
 DisableProgramGroupPage=yes
 DirExistsWarning=no
+; Keep unins000.* out of the shared Addins\2026 folder.
+UninstallFilesDir={app}\PipingIsoSuite
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog commandline
 OutputDir=..\dist
