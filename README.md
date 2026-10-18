@@ -48,6 +48,9 @@ You choose on the first page. For silent installs, pass `/ALLUSERS` or `/CURRENT
 
 ## Using it
 
+`docs/tutorials/` holds ten narrated tutorial videos, one per feature, and the scripts that render them. See [docs/tutorials/README.md](docs/tutorials/README.md).
+
+
 1. **Piping ISO Suite → Dashboard**, then **Refresh**. Scope options are *EntireModel*, *ActiveView* or *ConnectedToSelection*. With *ConnectedToSelection*, the run you picked becomes the header.
 2. **Assign Line Nos** acts on the checked runs, or on every run in scope if none are checked. The add-in creates `BC_LINENUMBER` as a shared text parameter on pipes, fittings and accessories if it is missing. Its GUID is fixed by its name, so it is the same in every project.
 3. **Validate**. Double-click an issue to select the offending elements.

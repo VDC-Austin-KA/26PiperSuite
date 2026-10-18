@@ -32,8 +32,9 @@ public sealed class DashboardViewModel : ObservableObject
         PropagateCommand = Command(_ => RunAsync(ui => Selected?.Run is { } run
             ? SuiteController.Propagate(ui, Scope, Presets, run.Nodes[0].Id) : "Select a header or branch to copy from."));
         RenameCommand = Command(_ => RunAsync(ui => SuiteController.RenameViews(ui, Scope, Presets, CheckedIds(TreeKind.View))));
-        RenumberCommand = Command(_ => RunAsync(ui => SuiteController.RenumberSheets(ui, Presets, CheckedIds(TreeKind.Sheet))));
-        DeleteCommand = Command(_ => RunAsync(ui => Confirm($"Delete {CheckedIds(TreeKind.View, TreeKind.Sheet).Count} checked view(s)/sheet(s)?")
+        RenumberCommand = Command(_ => RunAsync(ui => SuiteController.RenumberSheets(ui, Presets, SheetsToRenumber())));
+        DeleteCommand = Command(_ => RunAsync(ui => CheckedIds(TreeKind.View, TreeKind.Sheet).Count == 0 ? "Check the views/sheets to delete."
+            : Confirm($"Delete {CheckedIds(TreeKind.View).Count} iso view(s) and {CheckedIds(TreeKind.Sheet).Count} sheet(s)?")
             ? SuiteController.Delete(ui, CheckedIds(TreeKind.View, TreeKind.Sheet)) : "Delete cancelled."));
         SelectInModelCommand = Command(p => RunAsync(ui => { SuiteController.Select(ui, IdsOf(p as TreeItem ?? Selected)); return null; }, refresh: false));
         SelectIssueCommand = Command(p => RunAsync(ui => { if (p is ValidationIssue i) SuiteController.Select(ui, i.ElementIds); return null; }, refresh: false));
@@ -180,6 +181,13 @@ public sealed class DashboardViewModel : ObservableObject
 
     private List<long> CheckedIds(params TreeKind[] kinds) =>
         AllItems.Where(i => i.IsChecked && kinds.Contains(i.Kind) && i.ElementId is not null).Select(i => i.ElementId!.Value).Distinct().ToList();
+
+    /// <summary>Checked sheets, or every sheet in the tree (in tree order) when none are checked.</summary>
+    private List<long> SheetsToRenumber()
+    {
+        var ids = CheckedIds(TreeKind.Sheet);
+        return ids.Count > 0 ? ids : AllItems.Where(i => i.Kind == TreeKind.Sheet && i.ElementId is not null).Select(i => i.ElementId!.Value).Distinct().ToList();
+    }
 
     private static IEnumerable<long> IdsOf(TreeItem? item) =>
         item is null ? Enumerable.Empty<long>()

@@ -51,7 +51,7 @@
             </WrapPanel>
             <WrapPanel>
               <Button Content="Rename Views" Command="{Binding RenameCommand}" ToolTip="Re-apply the view naming rule to checked iso views" />
-              <Button Content="Renumber Sheets" Command="{Binding RenumberCommand}" ToolTip="Renumber checked sheets in tree order" />
+              <Button Content="Renumber Sheets" Command="{Binding RenumberCommand}" ToolTip="Renumber checked sheets (all sheets when none checked) in tree order" />
               <Button Content="Delete Checked" Command="{Binding DeleteCommand}" ToolTip="Delete checked iso views and sheets" />
             </WrapPanel>
             <Grid Margin="0,2,0,6">

@@ -28,7 +28,12 @@ public sealed class TreeItem : ObservableObject
     public bool IsChecked
     {
         get => _isChecked;
-        set { if (Set(ref _isChecked, value)) foreach (var c in Children) c.IsChecked = value; }
+        set
+        {
+            if (!Set(ref _isChecked, value)) return;
+            // A sheet is not part of a view: checking a view to delete or rename it must not take its sheet along.
+            foreach (var c in Children.Where(c => !(Kind == TreeKind.View && c.Kind == TreeKind.Sheet))) c.IsChecked = value;
+        }
     }
 
     public bool IsExpanded { get => _isExpanded; set => Set(ref _isExpanded, value); }

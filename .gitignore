@@ -6,3 +6,4 @@ dist/
 *.suo
 .vs/
 TestResults/
+docs/tutorials/out/
