@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Piping ISO Suite</Name>
+    <!-- Relative to this manifest: Addins\2026\PipingIsoSuite\PipingIsoSuite.Revit.dll -->
+    <Assembly>PipingIsoSuite\PipingIsoSuite.Revit.dll</Assembly>
+    <FullClassName>PipingIsoSuite.Revit.App</FullClassName>
+    <ClientId>5C1F6B2E-7D4A-4E0B-9B53-2A6E8C1D4F70</ClientId>
+    <VendorId>PISU</VendorId>
+    <VendorDescription>Piping ISO Suite - EZ-ISO / piping management for Revit 2026</VendorDescription>
+  </AddIn>
+</RevitAddIns>
