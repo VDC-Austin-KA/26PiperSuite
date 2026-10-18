@@ -81,7 +81,8 @@
   .split { height: 5px; background: #e3e6eb; margin: 3px 0; }
   .issues-l { color: #4a5260; margin: 2px 0; }
   .issues { height: 44px; flex: none; border: 1px solid #d5d9de; overflow: hidden; font-size: 11px; }
-  .issue { display: flex; padding: 2px 4px; gap: 6px; }
+  .issue { display: flex; padding: 1px 4px; gap: 6px; white-space: nowrap; }
+  .issue span { overflow: hidden; text-overflow: ellipsis; }
   .issue.sel { background: #cde4fb; }
   .issue b { width: 70px; flex: none; color: #c0504d; }
   .pstatus { margin-top: 5px; color: #4a5260; font-size: 11.5px; white-space: pre-line; min-height: 28px; }
