@@ -402,9 +402,9 @@ function csvWindow(s) {
 function desktop(s, t) {
   let html = `<div class="desk"><div class="taskbar"><i class="win"></i><i></i><i></i><i></i><i></i></div>`;
   if (s.explorer) html += `<div class="explorer"><div class="eh">Downloads</div><div class="ep"><div class="side">Home<br>Desktop<br><b>Downloads</b><br>Documents<br>This PC</div>
-    <div class="files"><div class="file ${s.fileSel ? 'sel' : ''}" id="setup-file"><div class="fi">EXE</div><div><b>PipingIsoSuite-Revit2026-Setup-1.0.0.exe</b><div style="color:#6b737d">Application · 2.1 MB</div></div></div></div></div></div>`;
+    <div class="files"><div class="file ${s.fileSel ? 'sel' : ''}" id="setup-file"><div class="fi">EXE</div><div><b>PipingIsoSuite-Revit2026-Setup-1.0.1.exe</b><div style="color:#6b737d">Application · 2.1 MB</div></div></div></div></div></div>`;
   if (s.screen === 'smartscreen') html += `<div class="smart"><h2>Windows protected your PC</h2><p>Microsoft Defender SmartScreen prevented an unrecognized app from starting. Running this app might put your PC at risk.</p>
-    ${s.moreInfo ? '<p>App: PipingIsoSuite-Revit2026-Setup-1.0.0.exe<br>Publisher: Unknown publisher</p>' : '<span class="lnk" id="more-info">More info</span>'}
+    ${s.moreInfo ? '<p>App: PipingIsoSuite-Revit2026-Setup-1.0.1.exe<br>Publisher: Unknown publisher</p>' : '<span class="lnk" id="more-info">More info</span>'}
     <div class="sbtns">${s.moreInfo ? '<div id="run-anyway">Run anyway</div>' : ''}<div>Don't run</div></div></div>`;
   if (s.screen === 'mode') html += `<div class="mode"><div class="wt" style="padding:7px 12px;border-bottom:1px solid #e1e4e8">Select Setup Install Mode</div><div class="mb">
     Piping ISO Suite for Revit 2026 can be installed for all users (requires administrative privileges), or for you only.
@@ -426,7 +426,7 @@ function wizard(s, t) {
   if (page === 'wiz-installing') { const p = clamp01(since(s, 'screen', t) / 2.2); body = `Extracting files...<br><span style="color:#59616b">${folder}\\PipingIsoSuite\\${p < 0.5 ? 'PipingIsoSuite.Core.dll' : 'PipingIsoSuite.Revit.dll'}</span><div class="bar"><div style="width:${p * 100}%"></div></div>`; }
   if (page === 'wiz-finish') body = `The add-in will load the next time Revit 2026 starts.<br><br>Click Finish to exit Setup.`;
   const btn = page === 'wiz-ready' ? '<span class="btn">&lt; Back</span><span class="btn primary" id="wiz-next">Install</span>' : page === 'wiz-finish' ? '<span class="btn primary" id="wiz-next">Finish</span>' : '<span class="btn">Cancel</span>';
-  return `<div class="wiz"><div class="wt">Setup - Piping ISO Suite for Revit 2026 version 1.0.0</div>
+  return `<div class="wiz"><div class="wt">Setup - Piping ISO Suite for Revit 2026 version 1.0.1</div>
     <div class="wh"><div><b>${head[0]}</b><span>${head[1]}</span></div><div class="wico">ISO</div></div><div class="wb">${body}</div><div class="wf">${btn}</div></div>`;
 }
 

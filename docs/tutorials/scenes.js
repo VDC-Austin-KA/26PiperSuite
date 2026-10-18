@@ -115,7 +115,7 @@ export const TUTORIALS = [
     id: '01-install', n: 1, title: 'Installing and launching', subtitle: 'Run the installer, choose who gets the add-in, and open the dashboard in Revit 2026.',
     init: { screen: 'desktop', explorer: true, installed: false, tab: 'Systems', pane: false },
     steps: [
-      { say: 'Download the installer, PipingIsoSuite-Revit2026-Setup-1.0.0.exe. Close Revit first, then double-click the file.',
+      { say: 'Download the installer, PipingIsoSuite-Revit2026-Setup-1.0.1.exe. Close Revit first, then double-click the file.',
         speak: 'Download the Piping ISO Suite setup file. Close Revit first, then double-click the file.',
         act: [[0.6, { tap: '#setup-file', set: { fileSel: true } }], [3.2, { dbl: '#setup-file', set: { screen: 'smartscreen' } }]] },
       { say: "The installer isn't code-signed yet, so Windows SmartScreen may warn you. Click More info, then Run anyway.",
